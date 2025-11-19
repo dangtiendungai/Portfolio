@@ -11,6 +11,7 @@ import {
   Rocket,
   ServerCog,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   Workflow,
 } from "lucide-react";
@@ -37,21 +38,28 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "AI Product Strategy",
-    detail: "Define problem framing, data readiness, and AI UX that ships.",
-    icon: Briefcase,
+    title: "AI Development",
+    detail:
+      "LLM integration, fine-tuning, and AI-native UX that ships to production.",
+    icon: Sparkles,
   },
   {
-    title: "Model & Infra",
+    title: "Frontend Engineering",
     detail:
-      "Fine-tune, evaluate, and deploy LLM + multimodal systems reliably.",
+      "Modern React, Next.js, and polished UIs with realtime feedback and analytics.",
+    icon: Layers,
+  },
+  {
+    title: "Backend & Infrastructure",
+    detail:
+      "Scalable APIs, databases, and cloud infrastructure for reliable systems.",
     icon: ServerCog,
   },
   {
-    title: "Experience Delivery",
+    title: "Mobile App Development",
     detail:
-      "Polished frontends with realtime feedback, guardrails, and analytics.",
-    icon: Layers,
+      "Native and cross-platform mobile apps with seamless user experiences.",
+    icon: Smartphone,
   },
 ];
 
@@ -131,9 +139,11 @@ const aiFocus: FocusArea[] = [
 
 const tools = [
   "Next.js",
+  "React 19",
+  "React Native",
+  "TypeScript",
   "tRPC",
   "Tailwind",
-  "React 19",
   "Prisma",
   "Supabase",
   "Postgres",
@@ -142,6 +152,8 @@ const tools = [
   "Qdrant",
   "AWS",
   "Vercel",
+  "Expo",
+  "Node.js",
 ];
 
 export default function Home() {
@@ -155,12 +167,9 @@ export default function Home() {
 
         <header className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-emerald-300">
+            <p className="text-xl uppercase tracking-[0.1em] text-emerald-300">
               Đặng Tiến Dũng
             </p>
-            <h1 className="text-xl font-semibold text-white">
-              AI Full Stack Developer
-            </h1>
           </div>
           <nav className="flex flex-wrap items-center gap-4 text-sm text-slate-400 sm:justify-center">
             <a href="#experience" className="transition hover:text-emerald-300">
@@ -202,14 +211,14 @@ export default function Home() {
                 </span>
               </div>
               <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                Full Stack Developer focused on crafting AI-native products that
-                feel fast, trustworthy, and delightful.
+                Full Stack Developer specializing in AI, Frontend, Backend, and
+                Mobile app development.
               </h1>
               <p className="text-lg text-slate-300">
-                I help product teams translate fuzzy AI ideas into
-                production-ready software—pairing strong system design with
-                user-centered execution. From founding teams to enterprise
-                squads, I embed, experiment, and deliver.
+                I build end-to-end solutions—from intelligent AI systems and
+                scalable backends to polished frontends and native mobile apps.
+                Pairing strong system design with user-centered execution across
+                web, mobile, and AI-native products.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -247,8 +256,9 @@ export default function Home() {
                   </p>
                   <ul className="mt-3 space-y-2 text-sm text-slate-200">
                     <li>• LLM copilots & workflow automation</li>
-                    <li>• AI observability & evaluation rigs</li>
-                    <li>• Streaming UX w/ realtime guardrails</li>
+                    <li>• Frontend & mobile app development</li>
+                    <li>• Backend APIs & cloud infrastructure</li>
+                    <li>• Streaming UX with real-time guardrails</li>
                   </ul>
                 </div>
                 <div className="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/50 p-4">
@@ -291,7 +301,7 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="grid gap-6 rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900/70 via-slate-950 to-slate-900/60 p-8 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-6 rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900/70 via-slate-950 to-slate-900/60 p-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <div
               key={service.title}

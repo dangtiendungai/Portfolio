@@ -8,9 +8,9 @@ const sarala = Sarala({
 });
 
 export const metadata: Metadata = {
-  title: "Đặng Tiến Dũng | AI Full Stack Portfolio",
+  title: "Đặng Tiến Dũng | Full Stack Developer Portfolio",
   description:
-    "Full stack developer focused on AI-native products, delivering intelligent experiences from idea to deployment.",
+    "Full Stack Developer specializing in AI, Frontend, Backend, and Mobile app development. Building end-to-end solutions from intelligent AI systems to polished web and mobile applications.",
 };
 
 export default function RootLayout({
