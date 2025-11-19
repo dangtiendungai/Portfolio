@@ -137,23 +137,151 @@ const aiFocus: FocusArea[] = [
   },
 ];
 
-const tools = [
-  "Next.js",
-  "React 19",
-  "React Native",
-  "TypeScript",
-  "tRPC",
-  "Tailwind",
-  "Prisma",
-  "Supabase",
-  "Postgres",
-  "LangChain",
-  "OpenAI",
-  "Qdrant",
-  "AWS",
-  "Vercel",
-  "Expo",
-  "Node.js",
+type SkillCategory = {
+  name: string;
+  skills: string[];
+};
+
+// Map skill names to devicon icon names
+const getSkillIconUrl = (skillName: string): string | null => {
+  const iconMap: Record<string, string> = {
+    "Next.js": "devicon/nextjs",
+    "React 19": "devicon/react",
+    "Vue.js": "devicon/vuejs",
+    Angular: "devicon/angularjs",
+    TypeScript: "devicon/typescript",
+    JavaScript: "devicon/javascript",
+    "Tailwind CSS": "devicon/tailwindcss",
+    "Framer Motion": "tabler/brand-framer-motion",
+    Zustand: "devicon/zustand",
+    Redux: "devicon/redux",
+    "React Query": "logos/react-query-icon",
+    Vite: "devicon/vitejs",
+    Webpack: "devicon/webpack",
+    HTML5: "devicon/html5",
+    CSS3: "devicon/css3",
+    "Node.js": "devicon/nodejs",
+    Python: "devicon/python",
+    GraphQL: "logos/graphql",
+    Postgres: "devicon/postgresql",
+    MongoDB: "devicon/mongodb",
+    Redis: "devicon/redis",
+    Prisma: "devicon/prisma",
+    Supabase: "devicon/supabase",
+    Firebase: "devicon/firebase",
+    AWS: "devicon/amazonwebservices",
+    Docker: "devicon/docker",
+    Kubernetes: "devicon/kubernetes",
+    "React Native": "devicon/react",
+    Expo: "simple-icons/expo",
+    Ionic: "devicon/ionic",
+    Flutter: "devicon/flutter",
+    iOS: "devicon/apple",
+    Android: "devicon/android",
+    Swift: "devicon/swift",
+    Kotlin: "devicon/kotlin",
+    Dart: "devicon/dart",
+    LangChain: "simple-icons/langchain",
+    OpenAI: "logos/openai-icon",
+    Anthropic: "simple-icons/anthropic",
+    Qdrant: "logos/qdrant-icon",
+    Pinecone: "logos/pinecone-icon",
+    "Hugging Face": "simple-icons/huggingface",
+    TensorFlow: "devicon/tensorflow",
+    PyTorch: "devicon/pytorch",
+    tRPC: "devicon/trpc",
+    "REST APIs": "devicon/fastapi",
+    "Shadcn/ui": "vscode-icons/file-type-shadcn",
+    "App Store": "logos/apple-app-store",
+    "Play Store": "logos/google-play-icon",
+    "Vector DB": "logos/vector",
+  };
+
+  const iconName = iconMap[skillName];
+  if (!iconName) return null;
+
+  // Use iconify.dev API for colored tech icons (devicon collection)
+  return `https://api.iconify.design/${iconName}.svg`;
+};
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: "AI",
+    skills: [
+      "LangChain",
+      "OpenAI",
+      "Anthropic",
+      "Qdrant",
+      "Pinecone",
+      "Hugging Face",
+      "TensorFlow",
+      "PyTorch",
+      "LLM Fine-tuning",
+      "RAG",
+      "Vector DB",
+      "Prompt Engineering",
+      "Model Evaluation",
+    ],
+  },
+  {
+    name: "Frontend",
+    skills: [
+      "Next.js",
+      "React 19",
+      "Vue.js",
+      "Angular",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Shadcn/ui",
+      "Framer Motion",
+      "Zustand",
+      "Redux",
+      "React Query",
+      "Vite",
+      "Webpack",
+      "HTML5",
+      "CSS3",
+    ],
+  },
+  {
+    name: "Backend",
+    skills: [
+      "Node.js",
+      "Python",
+      "tRPC",
+      "GraphQL",
+      "REST APIs",
+      "Postgres",
+      "MongoDB",
+      "Redis",
+      "Prisma",
+      "Drizzle",
+      "Supabase",
+      "Firebase",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+    ],
+  },
+  {
+    name: "Mobile",
+    skills: [
+      "React Native",
+      "Expo",
+      "Ionic",
+      "Flutter",
+      "iOS",
+      "Android",
+      "Swift",
+      "Kotlin",
+      "Dart",
+      "App Store",
+      "Play Store",
+      "Mobile UI/UX",
+      "Push Notifications",
+    ],
+  },
 ];
 
 export default function Home() {
@@ -446,14 +574,36 @@ export default function Home() {
             <h2 className="text-2xl font-semibold text-white">Skills</h2>
             <span className="text-sm text-slate-400">Daily toolkit</span>
           </div>
-          <div className="grid grid-cols-2 gap-3 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-4">
-            {tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-2xl border border-white/5 bg-slate-950/60 px-4 py-3 text-center"
-              >
-                {tool}
-              </span>
+          <div className="space-y-8">
+            {skillCategories.map((category) => (
+              <div key={category.name} className="space-y-4">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                  {category.name}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => {
+                    const iconUrl = getSkillIconUrl(skill);
+                    return (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center gap-2 rounded-xl border border-white/5 bg-slate-950/60 px-3 py-2 text-xs text-slate-300 transition hover:border-emerald-400/30 hover:bg-slate-900/60"
+                      >
+                        {iconUrl && (
+                          <img
+                            src={iconUrl}
+                            alt={skill}
+                            width={20}
+                            height={20}
+                            className="flex-shrink-0"
+                            loading="lazy"
+                          />
+                        )}
+                        <span>{skill}</span>
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
             ))}
           </div>
         </section>
