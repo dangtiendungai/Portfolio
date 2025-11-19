@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Sarala } from "next/font/google";
+import { Sarala, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 
 const sarala = Sarala({
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-be-vietnam",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,8 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${sarala.className} antialiased`}>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${sarala.className} ${beVietnamPro.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

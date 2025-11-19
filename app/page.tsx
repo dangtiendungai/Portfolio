@@ -165,9 +165,9 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_60%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.12),_transparent_55%)] blur-3xl"
         />
 
-        <header className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+        <header className="sticky top-10 z-40 flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-950/70 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.4)] backdrop-blur sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xl uppercase tracking-[0.1em] text-emerald-300">
+            <p className="text-xl font-bold uppercase tracking-[0.1em] text-emerald-300 font-[family-name:var(--font-be-vietnam)]">
               Đặng Tiến Dũng
             </p>
           </div>
@@ -178,8 +178,8 @@ export default function Home() {
             <a href="#projects" className="transition hover:text-emerald-300">
               Projects
             </a>
-            <a href="#tooling" className="transition hover:text-emerald-300">
-              Tooling
+            <a href="#skills" className="transition hover:text-emerald-300">
+              Skills
             </a>
             <a href="#contact" className="transition hover:text-emerald-300">
               Contact
@@ -341,7 +341,7 @@ export default function Home() {
               {experience.map((job) => (
                 <div
                   key={job.company}
-                  className="relative rounded-2xl border border-white/5 bg-slate-900/70 p-6 pl-8 before:absolute before:-left-4 before:top-6 before:h-3 before:w-3 before:rounded-full before:bg-emerald-300 before:shadow-[0_0_20px_rgba(16,185,129,0.6)]"
+                  className="rounded-2xl border border-white/5 bg-slate-900/70 p-6"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
@@ -386,7 +386,7 @@ export default function Home() {
           className="space-y-8 rounded-3xl border border-white/5 bg-slate-900/50 p-8"
         >
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold text-white">Selected work</h2>
+            <h2 className="text-2xl font-semibold text-white">Projects</h2>
             <p className="text-sm text-slate-400">
               Shipping full journeys—from prompts to production deployments.
             </p>
@@ -439,14 +439,12 @@ export default function Home() {
         </section>
 
         <section
-          id="tooling"
+          id="skills"
           className="space-y-6 rounded-3xl border border-white/5 bg-slate-900/60 p-8"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-2xl font-semibold text-white">Tooling</h2>
-            <span className="text-sm text-slate-400">
-              What I ship with daily
-            </span>
+            <h2 className="text-2xl font-semibold text-white">Skills</h2>
+            <span className="text-sm text-slate-400">Daily toolkit</span>
           </div>
           <div className="grid grid-cols-2 gap-3 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-4">
             {tools.map((tool) => (
