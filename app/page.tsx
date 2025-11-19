@@ -2,10 +2,14 @@ import Image from "next/image";
 import {
   ArrowUpRight,
   Bot,
+  Briefcase,
   Cpu,
   Gauge,
+  Globe,
+  Layers,
   PenTool,
   Rocket,
+  ServerCog,
   ShieldCheck,
   Sparkles,
   Workflow,
@@ -23,6 +27,32 @@ const highlights: Highlight[] = [
   { label: "Models deployed", value: "25", icon: Cpu },
   { label: "Latency reductions", value: "↓ 63%", icon: Gauge },
   { label: "Teams enabled", value: "8 squads", icon: Workflow },
+];
+
+type Service = {
+  title: string;
+  detail: string;
+  icon: LucideIcon;
+};
+
+const services: Service[] = [
+  {
+    title: "AI Product Strategy",
+    detail: "Define problem framing, data readiness, and AI UX that ships.",
+    icon: Briefcase,
+  },
+  {
+    title: "Model & Infra",
+    detail:
+      "Fine-tune, evaluate, and deploy LLM + multimodal systems reliably.",
+    icon: ServerCog,
+  },
+  {
+    title: "Experience Delivery",
+    detail:
+      "Polished frontends with realtime feedback, guardrails, and analytics.",
+    icon: Layers,
+  },
 ];
 
 const experience = [
@@ -95,7 +125,7 @@ const aiFocus: FocusArea[] = [
     title: "Full stack velocity",
     detail:
       "From data ingestion to polished frontends—shipped with CI, testing, and infrastructure as code.",
-    icon: Cpu,
+    icon: PenTool,
   },
 ];
 
@@ -154,17 +184,22 @@ export default function Home() {
           </a>
         </header>
 
-        <section className="space-y-10 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,118,110,0.15)] backdrop-blur">
+        <section className="space-y-10 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,118,110,0.25)] backdrop-blur">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
             <Sparkles className="h-4 w-4 text-emerald-300" />
             AI-first builder
           </div>
 
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="space-y-6">
-              <div className="text-sm text-emerald-300/80">
-                <p className="font-semibold">Đặng Tiến Dũng</p>
-                <p className="text-slate-400">Ho Chi Minh City, Vietnam</p>
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="space-y-6 border-l border-white/10 pl-6">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-emerald-300/80">
+                <div>
+                  <p className="font-semibold">Đặng Tiến Dũng</p>
+                  <p className="text-slate-400">Ho Chi Minh City, Vietnam</p>
+                </div>
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.3em] text-emerald-200">
+                  Available Q1 2025
+                </span>
               </div>
               <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
                 Full Stack Developer focused on crafting AI-native products that
@@ -173,23 +208,66 @@ export default function Home() {
               <p className="text-lg text-slate-300">
                 I help product teams translate fuzzy AI ideas into
                 production-ready software—pairing strong system design with
-                user-centered execution.
+                user-centered execution. From founding teams to enterprise
+                squads, I embed, experiment, and deliver.
               </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:dangtiendung.ai@outlook.com"
+                  className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+                >
+                  Start a project
+                </a>
+                <a
+                  href="#projects"
+                  className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400/60 hover:text-emerald-300"
+                >
+                  View work
+                </a>
+              </div>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="mailto:dangtiendung.ai@outlook.com"
-                className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
-              >
-                Start a project
-              </a>
-              <a
-                href="#projects"
-                className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-400/60 hover:text-emerald-300"
-              >
-                View work
-              </a>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-950/80 via-emerald-500/10 to-emerald-400/5 p-6 shadow-[0_35px_80px_rgba(16,185,129,0.15)]">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-emerald-400/20 p-3">
+                    <Globe className="h-6 w-6 text-emerald-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.3em] text-emerald-200">
+                      Global impact
+                    </p>
+                    <p className="text-sm text-slate-300">
+                      Remote-first + onsite collabs
+                    </p>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
+                  <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
+                    focus
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-slate-200">
+                    <li>• LLM copilots & workflow automation</li>
+                    <li>• AI observability & evaluation rigs</li>
+                    <li>• Streaming UX w/ realtime guardrails</li>
+                  </ul>
+                </div>
+                <div className="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/50 p-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.4em] text-emerald-200">
+                      response
+                    </p>
+                    <p className="text-lg font-semibold text-white">
+                      Under 24h
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      dangtiendung.ai@outlook.com
+                    </p>
+                  </div>
+                  <ArrowUpRight className="h-8 w-8 text-emerald-300" />
+                </div>
+              </div>
+              <div className="pointer-events-none absolute -left-10 top-8 h-32 w-32 rounded-full bg-emerald-400/20 blur-3xl" />
+              <div className="pointer-events-none absolute -right-6 bottom-8 h-24 w-24 rounded-full bg-teal-300/20 blur-2xl" />
             </div>
           </div>
         </section>
@@ -213,6 +291,31 @@ export default function Home() {
           ))}
         </section>
 
+        <section className="grid gap-6 rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900/70 via-slate-950 to-slate-900/60 p-8 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="group flex flex-col gap-4 rounded-2xl border border-white/5 bg-slate-950/40 p-6 transition hover:border-emerald-400/40 hover:bg-slate-900/70"
+            >
+              <div className="flex items-center gap-3">
+                <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-3 text-emerald-300">
+                  <service.icon className="h-5 w-5" />
+                </div>
+                <p className="text-sm uppercase tracking-[0.3em] text-emerald-200">
+                  capability
+                </p>
+              </div>
+              <h3 className="text-xl font-semibold text-white">
+                {service.title}
+              </h3>
+              <p className="text-slate-300">{service.detail}</p>
+              <div className="mt-auto text-sm font-semibold text-emerald-300 opacity-0 transition group-hover:opacity-100">
+                Engage →
+              </div>
+            </div>
+          ))}
+        </section>
+
         <section
           id="experience"
           className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]"
@@ -228,7 +331,7 @@ export default function Home() {
               {experience.map((job) => (
                 <div
                   key={job.company}
-                  className="rounded-2xl bg-slate-900/70 p-6"
+                  className="relative rounded-2xl border border-white/5 bg-slate-900/70 p-6 pl-8 before:absolute before:-left-4 before:top-6 before:h-3 before:w-3 before:rounded-full before:bg-emerald-300 before:shadow-[0_0_20px_rgba(16,185,129,0.6)]"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
