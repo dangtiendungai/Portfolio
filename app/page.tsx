@@ -117,13 +117,44 @@ const tools = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-6 py-12 lg:px-12">
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-12 px-6 py-10 lg:px-12">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 rounded-[40px] bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_60%),radial-gradient(circle_at_bottom,_rgba(45,212,191,0.12),_transparent_55%)] blur-3xl"
         />
 
-        <header className="space-y-10 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,118,110,0.15)] backdrop-blur">
+        <header className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.35em] text-emerald-300">
+              Đặng Tiến Dũng
+            </p>
+            <h1 className="text-xl font-semibold text-white">
+              AI Full Stack Developer
+            </h1>
+          </div>
+          <nav className="flex flex-wrap items-center gap-4 text-sm text-slate-400 sm:justify-center">
+            <a href="#experience" className="transition hover:text-emerald-300">
+              Experience
+            </a>
+            <a href="#projects" className="transition hover:text-emerald-300">
+              Projects
+            </a>
+            <a href="#tooling" className="transition hover:text-emerald-300">
+              Tooling
+            </a>
+            <a href="#contact" className="transition hover:text-emerald-300">
+              Contact
+            </a>
+          </nav>
+          <a
+            href="mailto:dangtiendung.ai@outlook.com"
+            className="inline-flex items-center justify-center rounded-full border border-emerald-300/50 px-4 py-2 text-sm font-semibold text-emerald-200 transition hover:border-emerald-200"
+          >
+            Email me
+          </a>
+        </header>
+
+        <section className="space-y-10 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,118,110,0.15)] backdrop-blur">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
             <Sparkles className="h-4 w-4 text-emerald-300" />
             AI-first builder
@@ -140,8 +171,9 @@ export default function Home() {
                 feel fast, trustworthy, and delightful.
               </h1>
               <p className="text-lg text-slate-300">
-                I help product teams translate fuzzy AI ideas into production-ready
-                software—pairing strong system design with user-centered execution.
+                I help product teams translate fuzzy AI ideas into
+                production-ready software—pairing strong system design with
+                user-centered execution.
               </p>
             </div>
 
@@ -160,15 +192,18 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </header>
+        </section>
 
         <section className="grid gap-6 rounded-3xl border border-white/5 bg-slate-900/50 p-8 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
-            <div key={item.label} className="space-y-3 rounded-2xl border border-white/5 bg-slate-950/40 p-4">
+            <div
+              key={item.label}
+              className="space-y-3 rounded-2xl border border-white/5 bg-slate-950/40 p-4"
+            >
               <div className="flex items-center gap-3 text-emerald-300">
                 <item.icon className="h-5 w-5" />
                 <p className="text-sm uppercase tracking-wide text-slate-400">
-                {item.label}
+                  {item.label}
                 </p>
               </div>
               <p className="text-3xl font-semibold text-emerald-300">
@@ -178,7 +213,10 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <section
+          id="experience"
+          className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]"
+        >
           <div className="space-y-6 rounded-3xl border border-white/5 bg-slate-900/60 p-8">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-semibold text-white">Experience</h2>
@@ -188,11 +226,16 @@ export default function Home() {
             </div>
             <div className="space-y-6">
               {experience.map((job) => (
-                <div key={job.company} className="rounded-2xl bg-slate-900/70 p-6">
+                <div
+                  key={job.company}
+                  className="rounded-2xl bg-slate-900/70 p-6"
+                >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
                       <p className="text-sm text-emerald-300">{job.company}</p>
-                      <p className="text-lg font-semibold text-white">{job.role}</p>
+                      <p className="text-lg font-semibold text-white">
+                        {job.role}
+                      </p>
                     </div>
                     <p className="text-sm text-slate-400">{job.period}</p>
                   </div>
@@ -206,7 +249,10 @@ export default function Home() {
             <h2 className="text-2xl font-semibold text-white">AI edge</h2>
             <div className="space-y-4">
               {aiFocus.map((focus) => (
-                <div key={focus.title} className="rounded-2xl border border-emerald-400/20 p-5">
+                <div
+                  key={focus.title}
+                  className="rounded-2xl border border-emerald-400/20 p-5"
+                >
                   <div className="flex items-center gap-3">
                     <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 p-2">
                       <focus.icon className="h-5 w-5 text-emerald-300" />
@@ -222,18 +268,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="space-y-8 rounded-3xl border border-white/5 bg-slate-900/50 p-8">
+        <section
+          id="projects"
+          className="space-y-8 rounded-3xl border border-white/5 bg-slate-900/50 p-8"
+        >
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-2xl font-semibold text-white">Selected work</h2>
             <p className="text-sm text-slate-400">
               Shipping full journeys—from prompts to production deployments.
             </p>
           </div>
-          <div className="space-y-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <article
                 key={project.name}
-                className="rounded-3xl border border-white/5 bg-slate-950/60 p-6 transition hover:border-emerald-400/40 hover:-translate-y-1"
+                className="flex flex-col rounded-3xl border border-white/5 bg-slate-950/60 p-6 transition hover:border-emerald-400/40 hover:-translate-y-1"
               >
                 <div className="relative mb-4 overflow-hidden rounded-2xl border border-white/5">
                   <Image
@@ -246,7 +295,9 @@ export default function Home() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-white">{project.name}</h3>
+                  <h3 className="text-xl font-semibold text-white">
+                    {project.name}
+                  </h3>
                   <a
                     href={project.link}
                     target="_blank"
@@ -256,7 +307,9 @@ export default function Home() {
                     Explore →
                   </a>
                 </div>
-                <p className="mt-3 text-slate-300">{project.description}</p>
+                <p className="mt-3 flex-1 text-slate-300">
+                  {project.description}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <span
@@ -272,10 +325,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-6 rounded-3xl border border-white/5 bg-slate-900/60 p-8">
+        <section
+          id="tooling"
+          className="space-y-6 rounded-3xl border border-white/5 bg-slate-900/60 p-8"
+        >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-2xl font-semibold text-white">Tooling</h2>
-            <span className="text-sm text-slate-400">What I ship with daily</span>
+            <span className="text-sm text-slate-400">
+              What I ship with daily
+            </span>
           </div>
           <div className="grid grid-cols-2 gap-3 text-sm text-slate-300 sm:grid-cols-3 lg:grid-cols-4">
             {tools.map((tool) => (
@@ -289,7 +347,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-emerald-400/20 bg-gradient-to-br from-emerald-400/20 via-slate-900 to-slate-950 p-8 shadow-[0_25px_80px_rgba(16,185,129,0.15)]">
+        <section
+          id="contact"
+          className="rounded-3xl border border-emerald-400/20 bg-gradient-to-br from-emerald-400/20 via-slate-900 to-slate-950 p-8 shadow-[0_25px_80px_rgba(16,185,129,0.15)]"
+        >
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.3em] text-emerald-200">
               Next build
@@ -298,8 +359,8 @@ export default function Home() {
               Ready to translate your AI concept into a reliable product.
             </h2>
             <p className="text-slate-100/80">
-              I can embed with your team or own the whole stack—research, prototyping,
-              production, and ongoing iteration.
+              I can embed with your team or own the whole stack—research,
+              prototyping, production, and ongoing iteration.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
