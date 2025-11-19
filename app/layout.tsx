@@ -8,7 +8,7 @@ const sarala = Sarala({
 });
 
 export const metadata: Metadata = {
-  title: "Dang Nguyen | AI Full Stack Portfolio",
+  title: "Đặng Tiến Dũng | AI Full Stack Portfolio",
   description:
     "Full stack developer focused on AI-native products, delivering intelligent experiences from idea to deployment.",
 };

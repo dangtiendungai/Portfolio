@@ -131,7 +131,10 @@ export default function Home() {
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="space-y-6">
-              <p className="text-sm text-emerald-300/80">Dang Nguyen</p>
+              <div className="text-sm text-emerald-300/80">
+                <p className="font-semibold">Đặng Tiến Dũng</p>
+                <p className="text-slate-400">Ho Chi Minh City, Vietnam</p>
+              </div>
               <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
                 Full Stack Developer focused on crafting AI-native products that
                 feel fast, trustworthy, and delightful.
@@ -144,7 +147,7 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="mailto:hello@dang.dev"
+                href="mailto:dangtiendung.ai@outlook.com"
                 className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
               >
                 Start a project
@@ -300,7 +303,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="mailto:hello@dang.dev"
+                href="mailto:dangtiendung.ai@outlook.com"
                 className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
               >
                 <Bot className="h-4 w-4" />
