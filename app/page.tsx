@@ -1,8 +1,28 @@
-const highlights = [
-  { label: "AI products shipped", value: "12+" },
-  { label: "Models deployed", value: "25" },
-  { label: "Latency reductions", value: "↓ 63%" },
-  { label: "Teams enabled", value: "8 squads" },
+import Image from "next/image";
+import {
+  ArrowUpRight,
+  Bot,
+  Cpu,
+  Gauge,
+  PenTool,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+type Highlight = {
+  label: string;
+  value: string;
+  icon: LucideIcon;
+};
+
+const highlights: Highlight[] = [
+  { label: "AI products shipped", value: "12+", icon: Rocket },
+  { label: "Models deployed", value: "25", icon: Cpu },
+  { label: "Latency reductions", value: "↓ 63%", icon: Gauge },
+  { label: "Teams enabled", value: "8 squads", icon: Workflow },
 ];
 
 const experience = [
@@ -29,6 +49,8 @@ const projects = [
       "Retrieval-augmented AI assistant that understands org knowledge, triages ops questions, and triggers workflows through secure actions.",
     stack: ["Next.js", "LangChain", "Postgres", "Edge Functions"],
     link: "https://example.com",
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80",
   },
   {
     name: "Pulse Metrics",
@@ -36,6 +58,8 @@ const projects = [
       "Real-time observability surface with anomaly detection, automated RCA, and Slack-native triage experiences for SRE teams.",
     stack: ["tRPC", "Temporal", "ClickHouse", "Tailwind"],
     link: "https://example.com",
+    image:
+      "https://images.unsplash.com/photo-1520607162513-6c03916b9f5b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     name: "Generative Design System",
@@ -43,24 +67,35 @@ const projects = [
       "Composable UI kit that lets designers describe intent in natural language and streams production-ready React components.",
     stack: ["Next.js", "OpenAI", "Zustand", "Figma Plugin"],
     link: "https://example.com",
+    image:
+      "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=1600&q=80",
   },
 ];
 
-const aiFocus = [
+type FocusArea = {
+  title: string;
+  detail: string;
+  icon: LucideIcon;
+};
+
+const aiFocus: FocusArea[] = [
   {
     title: "AI-native UX",
     detail:
       "Conversational flows, adaptive interfaces, and streaming feedback that keep users in the loop.",
+    icon: Sparkles,
   },
   {
     title: "Reliable pipelines",
     detail:
       "Evaluation harnesses, observability, and guardrails so models stay accurate and aligned in production.",
+    icon: ShieldCheck,
   },
   {
     title: "Full stack velocity",
     detail:
       "From data ingestion to polished frontends—shipped with CI, testing, and infrastructure as code.",
+    icon: Cpu,
   },
 ];
 
@@ -90,7 +125,8 @@ export default function Home() {
 
         <header className="space-y-10 rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-[0_0_60px_rgba(15,118,110,0.15)] backdrop-blur">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
-            AI-first Builder
+            <Sparkles className="h-4 w-4 text-emerald-300" />
+            AI-first builder
           </div>
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -125,10 +161,13 @@ export default function Home() {
 
         <section className="grid gap-6 rounded-3xl border border-white/5 bg-slate-900/50 p-8 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
-            <div key={item.label} className="space-y-2">
-              <p className="text-sm uppercase tracking-wide text-slate-400">
+            <div key={item.label} className="space-y-3 rounded-2xl border border-white/5 bg-slate-950/40 p-4">
+              <div className="flex items-center gap-3 text-emerald-300">
+                <item.icon className="h-5 w-5" />
+                <p className="text-sm uppercase tracking-wide text-slate-400">
                 {item.label}
-              </p>
+                </p>
+              </div>
               <p className="text-3xl font-semibold text-emerald-300">
                 {item.value}
               </p>
@@ -165,10 +204,15 @@ export default function Home() {
             <div className="space-y-4">
               {aiFocus.map((focus) => (
                 <div key={focus.title} className="rounded-2xl border border-emerald-400/20 p-5">
-                  <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">
-                    {focus.title}
-                  </p>
-                  <p className="mt-2 text-slate-300">{focus.detail}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 p-2">
+                      <focus.icon className="h-5 w-5 text-emerald-300" />
+                    </div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">
+                      {focus.title}
+                    </p>
+                  </div>
+                  <p className="mt-3 text-slate-300">{focus.detail}</p>
                 </div>
               ))}
             </div>
@@ -188,6 +232,16 @@ export default function Home() {
                 key={project.name}
                 className="rounded-3xl border border-white/5 bg-slate-950/60 p-6 transition hover:border-emerald-400/40 hover:-translate-y-1"
               >
+                <div className="relative mb-4 overflow-hidden rounded-2xl border border-white/5">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={1200}
+                    height={720}
+                    className="h-48 w-full object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
+                </div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h3 className="text-xl font-semibold text-white">{project.name}</h3>
                   <a
@@ -247,17 +301,19 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="mailto:hello@dang.dev"
-                className="rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
               >
+                <Bot className="h-4 w-4" />
                 Book time
               </a>
               <a
                 href="https://cal.com"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/60"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/60"
               >
                 Download resume
+                <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
           </div>
